@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 	# GET / => static_pages(コントローラー)#(の)index(アクション)
-	root "static_pages#index"
+	root "static_pages#home"
 
 	# GET /static_pages/home => static_pages(コントローラー)#(の)home(アクション)
 	# 「/」はURLの意とアクションの意を密結合している
