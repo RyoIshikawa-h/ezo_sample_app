@@ -1,10 +1,18 @@
 Rails.application.routes.draw do
 	# GET / => static_pages(コントローラー)#(の)index(アクション)
-	root "static_pages#home"
+	root "static_pages#home" # testでは「get root_url」として扱われる
 
-	# GET /static_pages/home => static_pages(コントローラー)#(の)home(アクション)
-	# 「/」はURLの意とアクションの意を密結合している
-  get 'static_pages/home'
-  get 'static_pages/help'
-	get  "static_pages/about"
+	# # GET /static_pages/home => static_pages(コントローラー)#(の)home(アクション)
+	# # 「/」はURLの意とアクションの意を密結合している
+  # get 'static_pages/home' # testでは「get static_pages_home_url」として扱われる
+  # get 'static_pages/help'
+	# get  "static_pages/about"
+	# get  "static_pages/contact"
+	# get 'users/new'
+
+	# 「to:」を使うことでURLの意とアクションの意を疎結合にする
+	get "/help", to: "static_pages#help" # testでは「get help_path」として扱われる
+	get "/about", to: "static_pages#about"
+	get "/contact", to: "static_pages#contact"
+	get "/signup", to: "users#new"
 end
