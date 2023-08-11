@@ -78,4 +78,7 @@ Rails.application.configure do
   config.hosts << pf_host
 
   config.action_cable.allowed_request_origins = ["https://#{pf_host}"]
+
+	# 追記
+	config.action_controller.forgery_protection_origin_check = false
 end
