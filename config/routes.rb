@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
 	# GET / => static_pages(コントローラー)#(の)index(アクション)
 	root "static_pages#home" # testでは「get root_url」として扱われる
 
@@ -15,7 +16,10 @@ Rails.application.routes.draw do
 	get "/about", to: "static_pages#about"
 	get "/contact", to: "static_pages#contact"
 	get "/signup", to: "users#new"
-
+	get    "/signup",  to: "users#new"
+  get    "/login",   to: "sessions#new"
+  post   "/login",   to: "sessions#create"
+  delete "/logout",  to: "sessions#destroy"
 	resources :users
 
 end

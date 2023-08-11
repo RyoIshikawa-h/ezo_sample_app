@@ -12,6 +12,8 @@ class UsersController < ApplicationController
     # @user = User.new(params[:user]) 悪意パラメータを紛れさせられる
     @user = User.new(user_params) # Strong Parametersを使う
     if @user.save
+			reset_session
+      log_in @user
       flash[:success] = "Welcome to the Sample App!"
       redirect_to @user
     else
