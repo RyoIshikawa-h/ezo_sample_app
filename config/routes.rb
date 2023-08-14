@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'password_resets/new'
+  get 'password_resets/edit'
   get 'sessions/new'
 	# GET / => static_pages(コントローラー)#(の)index(アクション)
 	root "static_pages#home" # testでは「get root_url」として扱われる
@@ -22,5 +24,6 @@ Rails.application.routes.draw do
   delete "/logout",  to: "sessions#destroy"
 	resources :users
 	resources :account_activations, only: [:edit]
+	resources :password_resets,     only: [:new, :create, :edit, :update]
 
 end
