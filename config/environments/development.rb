@@ -39,6 +39,10 @@ Rails.application.configure do
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
+  # クラウドIDEの場合は以下をお使いください
+	host = 'special-space-capybara-6qgxpr947qxh5wq-3000.app.github.dev' # 自分の環境のホストに変えてください。
+  config.action_mailer.default_url_options = { host: host, protocol: 'https' }
+
   config.action_mailer.perform_caching = false
 
   # Print deprecation notices to the Rails logger.
